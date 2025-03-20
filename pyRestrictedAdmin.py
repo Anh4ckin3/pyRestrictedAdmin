@@ -121,10 +121,10 @@ class RestrictedAdmin:
                 return True
             except Exception as e:
                 logging.error('RemoteOperations failed: %s' % str(e))
-                sys.exit(0)
+                sys.exit(1)
         except Exception as e:
             logging.error('RemoteOperations failed: %s' % str(e))
-            sys.exit(0)
+            sys.exit(1)
 
 def main():
 
