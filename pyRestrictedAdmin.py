@@ -208,9 +208,9 @@ def main():
             # READ MODE
             read = call.check_status()
             if read == 1 : 
-                logging.warning('DisableRestrictedAdmin key is set to 0x1, pth on RDP is not allowed.')
+                logging.warning(f'DisableRestrictedAdmin key is set to 0x{read}, PTH on RDP is not allowed.')
             if read == 0 :
-                logging.info('DisableRestrictedAdmin key is set to 0X0, pth on RDP is allowed.')
+                logging.info(f'DisableRestrictedAdmin key is set to 0x{read}, PTH on RDP is allowed.')
             if read != 0 and read != 1:
                 logging.error('Error unknown value on regkey : %s' % str(read)) 
 

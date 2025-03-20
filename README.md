@@ -1,6 +1,6 @@
 # pyRestrictedAdmin
 
-pyRestrictedAdmin is a Python tool to perform many actions on the **DisableRestrictedAdmin** registry key on a remote Windows machine with the impacket lib. Handling this registry key allows Pass-The-Hash (PTH) on RDP.
+pyRestrictedAdmin is a Python tool to perform many actions on the **DisableRestrictedAdmin** registry key on a remote Windows machine with the impacket lib. Handling this registry key allows Pass-The-Hash (PTH) on RDP. Normally, modifying this registry value is done via PowerShell or cmd.exe. However, in some situations, a shell cannot be obtained on the machine. With this script, you can enable Restricted Admin remotely in an OPSEC-safe way.
 
 ## Articles and ressources :
 
@@ -37,4 +37,4 @@ python pyRestrictedAdmin.py -action enable <DOMAIN.LOCAL>/<USER>:'<PASSWORD>'@<T
 ```
 ---
 > [!NOTE]
-> Soon PR on impacket
+> Soon, PR on impacket and Netexec
