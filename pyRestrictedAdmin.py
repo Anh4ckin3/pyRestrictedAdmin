@@ -5,11 +5,9 @@
 # Date created       : 20 mars 2025
 
 import argparse 
-import pyfiglet 
 import sys
 import logging
 
-from impacket import version
 from impacket.examples import logger
 from impacket.examples.utils import parse_target
 from impacket.dcerpc.v5 import rrp
@@ -72,6 +70,7 @@ class RestrictedAdmin:
 
         except Exception as e:
                 logging.error('RemoteOperations failed: %s' % str(e))
+                sys.exit(0)
 
 
     def enable(self):
@@ -98,6 +97,7 @@ class RestrictedAdmin:
                 sys.exit(0)
         except Exception as e:
             logging.error('RemoteOperations failed: %s' % str(e))
+            sys.exit(0)
 
 
     def disable(self):
@@ -124,11 +124,12 @@ class RestrictedAdmin:
                 sys.exit(0)
         except Exception as e:
             logging.error('RemoteOperations failed: %s' % str(e))
+            sys.exit(0)
 
 def main():
 
     print('''
-            ______          _        _      _           _  ___      _           _       
+             _____          _        _      _           _  ___      _           _       
             | ___ \        | |      (_)    | |         | |/ _ \    | |         (_)      
  _ __  _   _| |_/ /___  ___| |_ _ __ _  ___| |_ ___  __| / /_\ \ __| |_ __ ___  _ _ __  
 | '_ \| | | |    // _ \/ __| __| '__| |/ __| __/ _ \/ _` |  _  |/ _` | '_ ` _ \| | '_ \ 
@@ -207,9 +208,11 @@ def main():
             # READ MODE
             read = call.check_status()
             if read == 1 : 
-                logging.warning('DisableRestrictedAdmin key is set to 0x1, pth on RDP is not allowed.')
+                logging.warning(f'DisableRestrictedAdmin key is set to 0x{read}, PTH on RDP is not allowed.')
             if read == 0 :
-                logging.info('DisableRestrictedAdmin key is set to 0X0, pth on RDP is allowed.') 
+                logging.info(f'DisableRestrictedAdmin key is set to 0x{read}, PTH on RDP is allowed.')
+            if read != 0 and read != 1:
+                logging.error('Error unknown value on regkey : %s' % str(read)) 
 
         if options.action == 'disable':
             # DISABLE MODE
@@ -217,6 +220,8 @@ def main():
             if disable :
                 if call.check_status() == 1:
                     logging.info('Operation complete successfully.')
+                else:
+                    logging.error('Error unknown value on regkey : %s' % str(read))
 
         if options.action == 'enable':
             # ENABLE MODE
@@ -224,6 +229,8 @@ def main():
             if enable == True :
                 if call.check_status() == 0:
                     logging.info('Operation complete successfully.')
+                else:
+                    logging.error('Error unknown value on regkey : %s' % str(read))
 
     except Exception as e:
         if logging.getLogger().level == logging.DEBUG:
