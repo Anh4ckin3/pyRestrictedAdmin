@@ -5,7 +5,6 @@
 # Date created       : 20 mars 2025
 
 import argparse 
-import pyfiglet 
 import sys
 import logging
 
@@ -130,7 +129,7 @@ class RestrictedAdmin:
 def main():
 
     print('''
-            ______          _        _      _           _  ___      _           _       
+             _____          _        _      _           _  ___      _           _       
             | ___ \        | |      (_)    | |         | |/ _ \    | |         (_)      
  _ __  _   _| |_/ /___  ___| |_ _ __ _  ___| |_ ___  __| / /_\ \ __| |_ __ ___  _ _ __  
 | '_ \| | | |    // _ \/ __| __| '__| |/ __| __/ _ \/ _` |  _  |/ _` | '_ ` _ \| | '_ \ 
