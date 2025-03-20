@@ -66,11 +66,11 @@ class RestrictedAdmin:
                 
             except Exception as e:
                 logging.error('RemoteOperations failed: %s' % str(e))
-                sys.exit(0) 
+                sys.exit(1) 
 
         except Exception as e:
                 logging.error('RemoteOperations failed: %s' % str(e))
-                sys.exit(0)
+                sys.exit(1)
 
 
     def enable(self):
@@ -94,10 +94,10 @@ class RestrictedAdmin:
                 return True
             except Exception as e:
                 logging.error('RemoteOperations failed: %s' % str(e))
-                sys.exit(0)
+                sys.exit(1)
         except Exception as e:
             logging.error('RemoteOperations failed: %s' % str(e))
-            sys.exit(0)
+            sys.exit(1)
 
 
     def disable(self):
@@ -161,11 +161,6 @@ def main():
                        help='IP Address of the target machine. If omitted it will use whatever was specified as target. '
                             'This is useful when target is the NetBIOS name and you cannot resolve it')
 
-    if len(sys.argv)==1:
-        parser.print_help()
-        sys.exit(1)
-
-    options = parser.parse_args()
     if len(sys.argv)==1:
         parser.print_help()
         sys.exit(1)
