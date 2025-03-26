@@ -37,4 +37,6 @@ python pyRestrictedAdmin.py -action enable <DOMAIN.LOCAL>/<USER>:'<PASSWORD>'@<T
 ```
 ---
 > [!NOTE]
-> Soon, PR on impacket and Netexec
+> Soon, PR on impacket
+> PR on nxc is done [PR #617](https://github.com/Pennyw0rth/NetExec/pull/617)
+
