@@ -89,7 +89,7 @@ class RestrictedAdmin:
             keyHandle = rrp.hBaseRegOpenKey(remoteOps._RemoteOperations__rrp, regHandle, registry_path)["phkResult"]
 
             try:
-                # SET VALUE TO ONE 
+                # SET VALUE TO Zero 
                 rrp.hBaseRegSetValue(remoteOps._RemoteOperations__rrp, keyHandle, 'DisableRestrictedAdmin\x00', rrp.REG_DWORD, 0)
                 return True
             except Exception as e:
@@ -116,7 +116,7 @@ class RestrictedAdmin:
             keyHandle = rrp.hBaseRegOpenKey(remoteOps._RemoteOperations__rrp, regHandle, registry_path)["phkResult"]
 
             try:
-                # SET VALUE TO ZERO 
+                # SET VALUE TO One 
                 rrp.hBaseRegSetValue(remoteOps._RemoteOperations__rrp, keyHandle, 'DisableRestrictedAdmin\x00', rrp.REG_DWORD, 1)
                 return True
             except Exception as e:
