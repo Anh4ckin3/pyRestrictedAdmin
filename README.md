@@ -13,7 +13,7 @@ pyRestrictedAdmin is a Python tool to perform many actions on the **DisableRestr
 ### dependencies  
 ```bash
 git clone https://github.com/Anh4ckin3/pyRestrictedAdmin
-cd restrictedadmin-manager
+cd pyRestrictedAdmin
 pip install -r requirements.txt
 ```
 
@@ -27,7 +27,7 @@ python pyRestrictedAdmin.py -action enable <DOMAIN.LOCAL>/<USER>:'<PASSWORD>'@<T
 ```
 
 - Action disable : Set value to 1, PTH will be no longer possible
-```
+```bash
 python pyRestrictedAdmin.py -action disable <DOMAIN.LOCAL>/<USER>:'<PASSWORD>'@<TARGET_IP>
 ```
 
