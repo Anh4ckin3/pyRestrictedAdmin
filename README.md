@@ -23,7 +23,7 @@ This tool takes part of the impacket lib, the syntax of the tool is the same as 
 
 - Action read : See the value of the registry key and deduce if PTH is is possible or not
 ```bash
-python pyRestrictedAdmin.py -action enable <DOMAIN.LOCAL>/<USER>:'<PASSWORD>'@<TARGET_IP>
+python pyRestrictedAdmin.py -action read <DOMAIN.LOCAL>/<USER>:'<PASSWORD>'@<TARGET_IP>
 ```
 
 - Action disable : Set value to 1, PTH will be no longer possible
